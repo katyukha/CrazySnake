@@ -1,0 +1,8 @@
+CMakeFiles
+*.swp
+*.o
+CMakeCache.txt
+Makefile
+*.cmake
+Snake
+
