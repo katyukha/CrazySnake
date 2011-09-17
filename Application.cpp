@@ -117,11 +117,6 @@ void Application::DelHandler(BaseEventHandler* handler){
             return;
         }
     }
-
-    /*for(int i = 0; i<handlers.size();i++)
-        if(handler == handlers[i])
-            //delete handlers[i];
-     */
 }
 
 void Application::sDelHandler(BaseEventHandler* handler){

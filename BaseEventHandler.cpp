@@ -34,25 +34,6 @@ bool BaseEventHandler::on_reshape(int width, int height){
     glMatrixMode (GL_MODELVIEW);//перемикаємо матрицю в режим перегляду моделей
 
 }
-/*
-bool BaseEventHandler::on_display(){
-    static GLfloat angle=0;
-    glClearColor (0.0,0.0,0.0,1.0);//колір очистки екрану
-    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//очистка екрану
-    glLoadIdentity();//завантаження камери
-    gluLookAt (0.0, 0.0, 9.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);//звідки і як дивитись
-    //далі обертаємо кубик на кут angel по всіх осях
-    glRotatef(angle, 1.0, 0.0, 0.0);
-    glRotatef(angle, 0.0, 1.0, 0.0);
-    glRotatef(angle, 0.0, 0.0, 1.0);
-    //будуємо куб відповідною стандартною функцією
-    glutSolidCube(0.3);
-
-    //cube();//малюємо куб
-    glutSwapBuffers();//міняємо буфери місцями
-    //angle+=0.6;//змінюємо кут нахилу кубу
-    return false;
-}*/
 
 class Application;
 void BaseEventHandler::Exit(){

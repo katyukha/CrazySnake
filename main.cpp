@@ -9,7 +9,6 @@
 #include "Application.h"
 #include "SnakeSegment.h"
 #include "SnakeHead.h"
-//#include "Cube.h"
 
 /*
  * 
@@ -76,7 +75,6 @@ int main(int argc, char** argv) {
 
     MyApp app(argc, argv);
     app.SetWindowMode("test app", 0,0,700,300);
-    //app.AddHandler(new Cube());
     app.Start();
     return 0;
 }

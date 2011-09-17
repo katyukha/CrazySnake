@@ -16,7 +16,7 @@
 class SnakeSegment: public BaseEventHandler, public CollisionObject{
 protected:
     GLfloat dx, dy;    
-    SnakeSegment * tail;
+    SnakeSegment  * tail, * prev;
 
     SnakeSegment(const SnakeSegment& orig);
 public:

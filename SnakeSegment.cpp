@@ -15,6 +15,7 @@ SnakeSegment::SnakeSegment(GLfloat x, GLfloat y, GLfloat size) {
     this->y=y;
     this->r = size;
     tail = 0;
+    prev = 0;
     dx = 0;
     dy = 0;
 }
@@ -31,14 +32,8 @@ SnakeSegment::~SnakeSegment() {
 
 bool SnakeSegment::on_display(){
     glPushMatrix();
-    glTranslatef(x,y,0);//встановлюємо зміщення локальної системи координат    
+    glTranslatef(x,y,0);
     glutSolidSphere(r, 50, 50);
-    //переміщуємо куб згідно з обраним прискоренням
-    //x+=dx;y+=dy;
-    //angle+=0.3;//змінюємо кут нахилу кубу
-  
-    
-    //  glutSwapBuffers();//міняємо буфери місцями
     glPopMatrix();
     return false;
 }
@@ -61,10 +56,16 @@ void SnakeSegment::move(GLfloat new_x, GLfloat new_y){
 }
 
 void SnakeSegment::toTail(SnakeSegment* segment){
+    if(!segment) return;
     if(this->tail)
         this->tail->toTail(segment);
     else{
         this->tail = segment;
+        segment->prev = this;
+        if( this->prev ){
+            segment->x = this->x + (this->x - this->prev->x);
+            segment->y = this->y + (this->y - this->prev->y);
+        }
     }
 }
 

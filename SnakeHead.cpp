@@ -23,7 +23,7 @@ void SnakeHead::Time(){
 void SnakeHead::processCollision(CollisionObject* obj){
     SnakeSegment * seg = dynamic_cast<SnakeSegment*>(obj);
     if(!seg){
-       return;       
+       return; //collision with  UnKnown Object      
     }
     if(this->contains(seg)){
         delete tail;
