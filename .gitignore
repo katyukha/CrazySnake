@@ -1,5 +1,6 @@
 CMakeFiles
 *.swp
+*.swo
 *.o
 CMakeCache.txt
 Makefile

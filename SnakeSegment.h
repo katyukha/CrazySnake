@@ -25,6 +25,7 @@ public:
     virtual void toTail(SnakeSegment * segment);
     virtual void move(GLfloat new_x, GLfloat new_y);
     bool contains(SnakeSegment * segment);
+    virtual void processCollision(CollisionObject* obj);
     virtual ~SnakeSegment();
 private:
 

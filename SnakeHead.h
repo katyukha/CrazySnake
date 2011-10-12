@@ -11,9 +11,7 @@
 #include "SnakeSegment.h"
 #include "Timer.h"
 
-//#include <boost/random/uniform_real.hpp>
 #include <boost/random.hpp>
-//#include <cstdlib>
 #include <ctime>
 
 class FreeSegment: public SnakeSegment{
@@ -24,16 +22,12 @@ public:
         boost::uniform_real<> coords(-5,5);
         boost::variate_generator<boost::mt19937&, boost::uniform_real<> >
              rand(rng, coords);
-        //boost::variate_generator<boost::mt11213b&, boost::uniform_real<> >
-        //     srand(stat_rgn, coords);
         x = rand();
         y = rand();
+        tag = TAG_FREE_SEGMENT;
     }
 
-    /*FreeSegment(GLfloat x, GLfloat y, GLfloat size = 0.4):
-                SnakeSegment(x, y, size){}*/
 };
-//boost::mt11213b FreeSegment::stat_rgn(std::time(0));
 
 class SnakeHead: public SnakeSegment, public Timer{
     GLfloat dx,dy;

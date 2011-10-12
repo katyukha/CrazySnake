@@ -14,6 +14,7 @@ SnakeSegment::SnakeSegment(GLfloat x, GLfloat y, GLfloat size) {
     this->x=x;
     this->y=y;
     this->r = size;
+    this->tag = TAG_SNAKE_SEGMENT;
     tail = 0;
     prev = 0;
     dx = 0;
@@ -75,4 +76,57 @@ bool SnakeSegment::contains(SnakeSegment* segment){
     if(tail)
         return tail->contains(segment);
     return false;
+}
+
+void SnakeSegment::processCollision(CollisionObject* obj){
+    if( obj->tag == TAG_FREE_SEGMENT ){
+        this->toTail( (SnakeSegment*)obj);
+        obj->tag = TAG_SNAKE_SEGMENT;
+        new FreeSegment();
+        return;
+    }
+//    if( obj->tag == TAG_SNAKE_SEGMENT ){
+//        while(obj->tag != TAG_SNAKE_HEAD){
+//            obj = obj->prev;
+//        }
+//        delete obj->tail;
+//    }
+/*
+    if( obj->tag == TAG_SNAKE_HEAD)
+        return;
+    
+    SnakeSegment * seg  =  dynamic_cast<SnakeSegment*>(obj);
+
+
+    if(!seg){
+       return; //collision with  UnKnown Object      
+    }
+
+    if (!seg->prev and seg->tail)   //if it is head
+       return;
+
+    //FreeSegment  * fseg =  dynamic_cast<FreeSegment*>(obj);
+    if(seg  &&  !seg->tail  &&  !seg->prev){          // if it is free segment
+       this->toTail(seg);
+       return;
+    }
+    return;
+
+    SnakeSegment * t= this->prev;
+    bool f = false;
+    while(t && !dynamic_cast<SnakeHead*>(t)){
+         if( !t->prev ) 
+             break;
+         t = t->prev;
+         if( t == obj )
+            f = true;
+    }
+
+    SnakeHead * head = dynamic_cast<SnakeHead*>(t);
+    if (!head)
+         return;
+    if (head->contains(seg)){
+          delete head->tail;
+    }
+    */
 }

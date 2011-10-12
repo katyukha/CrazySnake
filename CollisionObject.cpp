@@ -14,6 +14,7 @@ CollisionObject::CollisionObject(GLfloat x, GLfloat y, GLfloat r){
     this->x = x;
     this->y = y;
     this->r = r;
+    this->tag = TAG_UNKNOWN;
     CollisionChecker::AddObject(this);
 }
 

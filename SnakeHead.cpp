@@ -11,6 +11,7 @@ SnakeHead::SnakeHead(GLfloat x, GLfloat y, GLfloat size):
     SnakeSegment(x,y,size), Timer(50, true){
     dx = dxy;
     dy = 0;
+    tag = TAG_SNAKE_HEAD;
 }
 
 void SnakeHead::Time(){
@@ -21,8 +22,8 @@ void SnakeHead::Time(){
 }
 
 void SnakeHead::processCollision(CollisionObject* obj){
-    SnakeSegment * seg = dynamic_cast<SnakeSegment*>(obj);
-    if(!seg){
+   // SnakeSegment * seg = dynamic_cast<SnakeSegment*>(obj);
+   /*if(!seg){
        return; //collision with  UnKnown Object      
     }
     if(this->contains(seg)){
@@ -33,7 +34,20 @@ void SnakeHead::processCollision(CollisionObject* obj){
         //TODO: move tailed segment to right position in the end of the tail
         toTail(seg);
         new FreeSegment();
-    }    
+    }*/
+    switch(obj->tag){
+        case  TAG_FREE_SEGMENT : {
+            toTail((SnakeSegment*)obj);
+            obj->tag = TAG_SNAKE_SEGMENT;
+            new FreeSegment();
+            break;
+        }
+        case TAG_SNAKE_SEGMENT : {
+            delete tail;
+            tail = 0;
+            break;
+        }
+    }
 }
 
 bool SnakeHead::on_key(unsigned char key, int x, int y){

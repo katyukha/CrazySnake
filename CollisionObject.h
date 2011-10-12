@@ -9,6 +9,7 @@
 #define	COLLISIONOBJECT_H
 
 #include <GL/gl.h>
+#include <CollisionTags.h>
 
 class CollisionObject{
     
@@ -16,6 +17,8 @@ class CollisionObject{
 protected:
     GLfloat x, y, r;
 public:
+    int tag;
+
     CollisionObject(GLfloat x = 0, GLfloat y = 0, GLfloat r = 0);
     virtual bool check(CollisionObject * obj);
     virtual void processCollision(CollisionObject * obj){};

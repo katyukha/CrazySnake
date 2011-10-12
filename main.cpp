@@ -32,6 +32,9 @@ protected:
         SnakeHead * head = new SnakeHead();
         //AddHandler(head);
 
+        for(GLfloat x=-1; -x/1<7; x-=1)
+            head->toTail(new SnakeSegment(x, 0, 0.4));
+/*
         SnakeSegment * seg = new SnakeSegment(-0.75,0,0.4);
         //AddHandler(seg);
         head->toTail(seg);
@@ -44,23 +47,23 @@ protected:
         //AddHandler(seg);
         head->toTail(seg);
 
-        seg = new SnakeSegment(-3.5,0,0.4);
-        //AddHandler(seg);
-        head->toTail(seg);
-
-        seg = new SnakeSegment(-4.5,0,0.4);
-        //AddHandler(seg);
-        head->toTail(seg);
-
         seg = new SnakeSegment(-5.5,0,0.4);
         //AddHandler(seg);
         head->toTail(seg);
 
-        seg = new SnakeSegment(-6.5,0,0.4);
+        seg = new SnakeSegment(-7.5,0,0.4);
         //AddHandler(seg);
         head->toTail(seg);
 
-        seg = new FreeSegment();
+        seg = new SnakeSegment(-9.5,0,0.4);
+        //AddHandler(seg);
+        head->toTail(seg);
+
+        seg = new SnakeSegment(-11.5,0,0.4);
+        //AddHandler(seg);
+        head->toTail(seg);
+*/
+        new FreeSegment();
         //seg = new FreeSegment();
 
 
