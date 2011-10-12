@@ -78,19 +78,24 @@ bool SnakeSegment::contains(SnakeSegment* segment){
     return false;
 }
 
-void SnakeSegment::processCollision(CollisionObject* obj){
+bool SnakeSegment::processCollision(CollisionObject* obj){
     if( obj->tag == TAG_FREE_SEGMENT ){
         this->toTail( (SnakeSegment*)obj);
         obj->tag = TAG_SNAKE_SEGMENT;
         new FreeSegment();
-        return;
+        return false;
     }
-//    if( obj->tag == TAG_SNAKE_SEGMENT ){
-//        while(obj->tag != TAG_SNAKE_HEAD){
-//            obj = obj->prev;
-//        }
-//        delete obj->tail;
-//    }
+    
+    if( obj->tag == TAG_SNAKE_SEGMENT && this->tag == TAG_SNAKE_SEGMENT ){
+        std::cout << "Hello!!!" << std::endl;
+        SnakeSegment * seg = static_cast<SnakeSegment *>(obj);
+        while(seg->tag != TAG_SNAKE_HEAD){
+            seg = seg->prev;
+        }
+        delete seg->tail;
+        return false;
+    }
+
 /*
     if( obj->tag == TAG_SNAKE_HEAD)
         return;

@@ -21,7 +21,7 @@ void SnakeHead::Time(){
     move(x,y);
 }
 
-void SnakeHead::processCollision(CollisionObject* obj){
+bool SnakeHead::processCollision(CollisionObject* obj){
    // SnakeSegment * seg = dynamic_cast<SnakeSegment*>(obj);
    /*if(!seg){
        return; //collision with  UnKnown Object      
@@ -48,6 +48,7 @@ void SnakeHead::processCollision(CollisionObject* obj){
             break;
         }
     }
+    return false;
 }
 
 bool SnakeHead::on_key(unsigned char key, int x, int y){

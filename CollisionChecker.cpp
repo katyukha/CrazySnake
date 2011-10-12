@@ -26,8 +26,9 @@ void CollisionChecker::Time(){
                 if((*i)->check(*j) || (*j)->check(*i)){
                     f = true;
                     try{
-                        (*i)->processCollision(*j);
-                        (*j)->processCollision(*i);
+                        bool f = (*i)->processCollision(*j);
+                        if( f )
+                            (*j)->processCollision(*i);
                     }catch(...){
                     }
                     return;

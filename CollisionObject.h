@@ -20,8 +20,12 @@ public:
     int tag;
 
     CollisionObject(GLfloat x = 0, GLfloat y = 0, GLfloat r = 0);
+
     virtual bool check(CollisionObject * obj);
-    virtual void processCollision(CollisionObject * obj){};
+
+    // If false returned then no call to other_obj->processCollision will be made
+    virtual bool processCollision(CollisionObject * obj){return true;}
+
     virtual ~CollisionObject();
 private:
 

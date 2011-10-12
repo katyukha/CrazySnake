@@ -38,7 +38,7 @@ public:
     void Time();
     virtual ~SnakeHead();
     virtual bool on_key(unsigned char key, int x, int y);
-    virtual void processCollision(CollisionObject * obj);
+    virtual bool processCollision(CollisionObject * obj);
 private:
 
 };
