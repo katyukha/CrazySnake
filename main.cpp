@@ -6,7 +6,7 @@
  */
 
 #include <cstdlib>
-#include "Application.h"
+#include "snakelib.h"
 #include "SnakeSegment.h"
 #include "SnakeHead.h"
 

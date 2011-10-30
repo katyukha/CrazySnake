@@ -8,8 +8,7 @@
 #ifndef SNAKESEGMENT_H
 #define	SNAKESEGMENT_H
 
-#include "BaseEventHandler.h"
-#include "CollisionObject.h"
+#include "lib/snakelib.h"
 
 #define dxy 0.1
 

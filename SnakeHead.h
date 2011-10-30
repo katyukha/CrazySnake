@@ -9,7 +9,7 @@
 #define	SNAKEHEAD_H
 
 #include "SnakeSegment.h"
-#include "Timer.h"
+#include "lib/snakelib.h"
 
 #include <boost/random.hpp>
 #include <ctime>
